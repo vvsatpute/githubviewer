@@ -1,0 +1,31 @@
+<div class="panel panel-default" ng-show="repos">
+  <div class="panel-heading">
+    <h3>Repository Details: {{username}} </h3>
+  </div>
+  <div class="panel-body">
+    <table class="table table-stripped">
+      <thead>
+        <tr class='info'>
+            <th> <a class="btn" ng-dblclick="setRepoOrder('-name')" ng-click="setRepoOrder('name')">Name</a>  </th>
+            <th> <a class="btn" ng-dblclick="setRepoOrder('-stargazers_count')" ng-click="setRepoOrder('stargazers_count')">Stars</a> </th>
+            <th> <a class="btn" ng-dblclick="setRepoOrder('-language')" ng-click="setRepoOrder('language')">Language</a> </th>
+            <th>
+              Download
+            </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="repo in repos|orderBy:repoOrder" >
+            <th> <a ng-href="#/repository/{{username}}/{{repo.name}}">{{repo.name}}</a> </th>
+            <th> {{repo.stargazers_count|number}} </th>
+            <th> {{repo.language}} </th>
+            <td>
+              <a target="_blank" ng-href="{{repo.html_url}}/archive/master.zip">Download</a>
+            </td>
+        </tr>
+      </tbody>
+    </table>
+    <a class="label label-default" href="#/profile"> Back to Search </a>
+  </div>
+
+</div>

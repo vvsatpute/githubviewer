@@ -1,0 +1,30 @@
+<div class="container-fluid">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3>Project Details</h3>
+    </div>
+    <div class="panel-body">
+      <div class="col-sm-8">
+        <ul class="list-group">
+          <li class="list-group-item"><b>Name:</b> {{project.name}}</li>
+          <li class="list-group-item"><b>Open Issues:</b> {{project.open_issues}}</li>
+          <li class="list-group-item"><b>Stars:</b> {{project.stargazers_count}}</li>
+          <li class="list-group-item"><b>Home Page:</b> {{project.homepage}}</li>
+          <li class="list-group-item"><b>Clone URL:</b> {{project.clone_url}}</li>
+        </ul>
+      </div>
+      <div class="col-md-push-2">
+        <img class="thumbnail" style="height:140px;width:140px" ng-src="{{project.owner.avatar_url}}" alt="{{project.name}}" />
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3>Contributers</h3>
+    </div>
+    <div class="panel-body">
+      <contributers-grid ng-if="contributers.length > 0"></contributers-grid>
+      <div ng-if="contributers.length == 0" >No contributors found!</div>
+    </div>
+  </div>
+</div>
